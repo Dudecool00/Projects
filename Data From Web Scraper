@@ -1,0 +1,159 @@
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      18.0
+___/   /   /___/   /   /___/       BE—Basic Edition
+
+ Statistics and Data Science       Copyright 1985-2023 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: 65-student lab perpetual
+Serial number: 301806002579
+  Licensed to: ITC Support
+               University of Iowa
+
+Notes:
+      1. Unicode is supported; see help unicode_advice.
+
+Running C:\Program Files\Stata18\sysprofile.do ...
+
+. *(15 variables, 51 observations pasted into data editor)
+
+. *(15 variables, 51 observations pasted into data editor)
+
+. clear all
+
+. *(15 variables, 51 observations pasted into data editor)
+
+. clear all
+
+. *(15 variables, 51 observations pasted into data editor)
+
+. clear all
+
+. *(15 variables, 50 observations pasted into data editor)
+
+. rename var1 POS
+
+. rename var2 GP
+
+. rename var3 CMP
+
+. rename var4 ATT
+
+. rename var5 CMP%
+1 new variable name invalid
+    You attempted to rename var5 to CMP%.  That is an invalid Stata variable
+    name.
+r(198);
+
+. rename var5 CMP_PERCENT
+
+. rename var6 YDS
+
+. rename var7 AVG
+
+. rename var8 YDS/G
+1 new variable name invalid
+    You attempted to rename var8 to YDS/G.  That is an invalid Stata variable
+    name.
+r(198);
+
+. rename var8 YDS_GAME
+
+. rename var9 LNG
+
+. rename var10 TD
+
+. rename var11 INT
+
+. rename var12 SACK
+
+. rename var13 SYL
+
+. rename var14 QBR
+
+. rename var15 RTG
+
+. summarize
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         POS |          0
+          GP |         50       11.78    4.478019          2         17
+         CMP |         50      225.16    118.1017         32        460
+         ATT |         50      343.98    169.8594         44        652
+ CMP_PERCENT |         50       64.82    5.177503       47.7       77.3
+-------------+---------------------------------------------------------
+         YDS |         50      2462.6    1344.123        361       4918
+         AVG |         50       7.022    1.059705        3.7       10.2
+    YDS_GAME |         50     195.808    52.65824       62.9      289.3
+         LNG |         50       61.04    18.71697         25         98
+          TD |         50       15.74    11.24461          0         43
+-------------+---------------------------------------------------------
+         INT |         50         7.5    4.151469          0         16
+        SACK |         50       25.12    14.86763          2         68
+         SYL |         50       165.5    100.6644         14        466
+         QBR |         50      51.108    14.80557       17.4       86.3
+         RTG |         50        90.1       15.41       39.5      131.3
+
+. gen d.POS
+d.POS invalid name
+r(198);
+
+. tab POS, gen(d)
+
+        POS |      Freq.     Percent        Cum.
+------------+-----------------------------------
+         QB |         50      100.00      100.00
+------------+-----------------------------------
+      Total |         50      100.00
+
+. rename d1 dQB
+
+. summarize GP CMP ATT CMP_PERCENT YDS AVG YDS_GAME LNG TD INT SACK SYL QBR RTG
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+          GP |         50       11.78    4.478019          2         17
+         CMP |         50      225.16    118.1017         32        460
+         ATT |         50      343.98    169.8594         44        652
+ CMP_PERCENT |         50       64.82    5.177503       47.7       77.3
+         YDS |         50      2462.6    1344.123        361       4918
+-------------+---------------------------------------------------------
+         AVG |         50       7.022    1.059705        3.7       10.2
+    YDS_GAME |         50     195.808    52.65824       62.9      289.3
+         LNG |         50       61.04    18.71697         25         98
+          TD |         50       15.74    11.24461          0         43
+         INT |         50         7.5    4.151469          0         16
+-------------+---------------------------------------------------------
+        SACK |         50       25.12    14.86763          2         68
+         SYL |         50       165.5    100.6644         14        466
+         QBR |         50      51.108    14.80557       17.4       86.3
+         RTG |         50        90.1       15.41       39.5      131.3
+
+. ci means GP CMP ATT CMP_PERCENT YDS AVG YDS_GAME LNG TD INT SACK SYL QBR RTG
+
+    Variable |        Obs        Mean    Std. err.       [95% conf. interval]
+-------------+---------------------------------------------------------------
+          GP |         50       11.78    .6332875        10.50736    13.05264
+         CMP |         50      225.16     16.7021        191.5959    258.7241
+         ATT |         50      343.98    24.02175        295.7065    392.2535
+ CMP_PERCENT |         50       64.82    .7322094        63.34857    66.29143
+         YDS |         50      2462.6    190.0877        2080.605    2844.595
+-------------+---------------------------------------------------------------
+         AVG |         50       7.022     .149865        6.720835    7.323165
+    YDS_GAME |         50     195.808    7.446999        180.8427    210.7733
+         LNG |         50       61.04    2.646979         55.7207     66.3593
+          TD |         50       15.74    1.590228        12.54432    18.93568
+         INT |         50         7.5    .5871064        6.320166    8.679834
+-------------+---------------------------------------------------------------
+        SACK |         50       25.12    2.102601        20.89467    29.34533
+         SYL |         50       165.5    14.23609        136.8915    194.1085
+         QBR |         50      51.108    2.093824         46.9003     55.3157
+         RTG |         50        90.1    2.179303        85.72053    94.47947
+
+. 
