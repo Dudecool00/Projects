@@ -1,0 +1,9 @@
+# Scraping
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+lxml>=4.9.3
+
+# Analysis and plotting
+pandas>=2.1.4
+matplotlib>=3.8.2
+seaborn>=0.13.0
